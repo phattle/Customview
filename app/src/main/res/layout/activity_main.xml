@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <com.example.customview.TitleWithIcon
+        android:id="@+id/titleWithIcon"
         app:text_title="Module"
         app:drawable_icon="@drawable/ic_circle_red"
         android:layout_width="match_parent"

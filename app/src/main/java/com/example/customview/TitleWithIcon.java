@@ -14,6 +14,7 @@ public class TitleWithIcon  extends RelativeLayout {
     private int mDrawableImage;
     private TextView mTextView;
     private ImageView mImg;
+    private OnListenerClick mOnListenerClick;
 
     public TitleWithIcon(Context context) {
         super(context);
@@ -40,7 +41,17 @@ public class TitleWithIcon  extends RelativeLayout {
             typedArray.recycle();
             
             mapView(view);
+            event();
         }
+    }
+
+    private void event() {
+        mImg.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOnListenerClick.onClickIcon();
+            }
+        });
     }
 
     private void mapView(View v) {
@@ -54,6 +65,9 @@ public class TitleWithIcon  extends RelativeLayout {
              mTextView.setText(mTextTitle);
             }
         mImg.setImageResource(mDrawableImage);
-
+    }
+    public void setOnClickIcon(OnListenerClick onClickIcon){
+        mOnListenerClick = onClickIcon;
     }
 }
+
